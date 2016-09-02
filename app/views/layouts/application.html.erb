@@ -7,9 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<nav class="navbar navbar-default" style='background-color:#3a94ca;'>
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header" style='color:white;'>
+        <%= link_to 'Test', root_path %>
+      </div>
+    </div>
+  </nav>
+	<div class="container">
+		<%= yield %>
+	</div>
 </body>
 </html>
 
