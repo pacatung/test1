@@ -9,9 +9,9 @@
     <div class="form-group">
       <%= p.label :imageables, "Upload File" %>
       <%= file_field_tag "images[]", type: :file , :multiple=> true %>
-      <%= check_box_tag "destroy_photo", "1" %> 刪除檔案
-      
+      <%= check_box_tag "destroy_photo", "1" %> 刪除檔案      
     </div>
+    
      
     <%= p.submit "Create" , class: :'btn btn-warning' %>
 <% end %>
@@ -19,7 +19,7 @@
     <%= link_to "Back to index", posts_path, class: :'btn btn-info' %>
 <p>==============</p>
 <%= s3_uploader_form callback_url: posts_path, callback_param: "model[image_url]", id: "s3-uploader" do %>
-  <%= file_field_tag :file, multiple: true, data: { url: "https://s3-tokyo.amazonaws.com/trytryasdfasdf/" } %>
+  <%= file_field_tag :file, multiple: true, data: { url: "https://s3-ap-northeast-1.amazonaws.com/trytryasdfasdf/" } %>
 <% end %>
 <script id="template-upload" type="text/x-tmpl">
 <div id="file-{%=o.unique_id%}" class="upload">
