@@ -1,6 +1,9 @@
 <div class="container">
 	<%= @post.title %>
 	<%= @post.content %>
+	<% @imageables.each do |imageable| %>
+		<%= image_tag imageable.image.url %>
+	<% end %>
 	<p></p>
-	<%= link_to "Back to index", posts_path %>
+	<%= link_to "Back to index", posts_path , class: :'btn btn-info' %>
 </div>

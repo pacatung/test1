@@ -1,11 +1,17 @@
-<%= form_for @post, url: posts_path do |p| %>
+<%= form_for @post, url: posts_path,:html => {:multipart => true}  do |p| %>
     <%= p.label :title, "title" %>
     <%= p.text_field :title %>
 
     <%= p.label :content, "content" %>
     <%= p.text_area :content %>
 
-    <%= p.submit "Create" %>
+    <div class="form-group">
+      <%= p.label :imageables, "Upload File" %>
+      <%= file_field_tag "images[]", type: :file ,:multiple=> true %>
+      <%= check_box_tag "destroy_photo", "1" %> 刪除檔案
+    </div>
+     
+    <%= p.submit "Create" , class: :'btn btn-warning' %>
 <% end %>
-
+<p></p>
 <%= link_to "Back to index", posts_path, class: :'btn btn-info' %>

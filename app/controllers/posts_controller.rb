@@ -10,16 +10,25 @@ class PostsController < ApplicationController
 
 	def create
     @post = Post.new(post_params)
-		@post.save
-
-		redirect_to posts_url
+		respond_to do |format|
+      if @post.save
+        if params[:images]
+          #===== post images[]
+          params[:images].each { |image|
+            @post.imageables.create(image: image)
+          }
+        end
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+      end
+    end
 	end
 	def show
+		@imageables = @post.imageables
+		puts @imageables.inspect
 	end
 	def edit
 	end
 	def update
-	  @post = Post.find(params[:id])
 	  @post.update(post_params)
 
 	  redirect_to post_url(@post)
@@ -29,12 +38,12 @@ class PostsController < ApplicationController
 		redirect_to posts_url
 	end
 
-protected
+private
 	def find_post
     @post = Post.find(params[:id])
   end
   def post_params
-    params.require(:post).permit( :title, :content, photos_attributes: [:post_id, :photo_location, :pic],countries_attributes:[:country,:_destroy,:id],
-      locations_attributes:[:location,:_destroy,:id])
+    params.require(:post).permit( :title, :content, imageables_attributes:[:post_id, :image], locations_attributes:[:location,:_destroy,:id])
   end
+ 
 end

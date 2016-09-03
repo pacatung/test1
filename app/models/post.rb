@@ -1,4 +1,4 @@
 class Post < ActiveRecord::Base
   has_many :attachments, as: :attachable
-  has_many :images, as: :imageable
+  has_many :imageables
 end
