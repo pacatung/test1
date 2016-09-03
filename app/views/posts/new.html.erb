@@ -17,7 +17,20 @@
 <% end %>
 <p></p>
     <%= link_to "Back to index", posts_path, class: :'btn btn-info' %>
+<p>==============</p>
+<%= s3_uploader_form callback_url: posts_path, callback_param: "model[image_url]", id: "s3-uploader" do %>
+  <%= file_field_tag :file, multiple: true, data: { url: "https://s3-tokyo.amazonaws.com/trytryasdfasdf/" } %>
+<% end %>
+<script id="template-upload" type="text/x-tmpl">
+<div id="file-{%=o.unique_id%}" class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
 </div>
+</script>
+<script>  $("#s3-uploader").S3Uploader()</script>
+<p>==============</p>
+</div>
+
 <div class="col-md-6">
     <img id="previewImage" src="#" style="max-width:100%;" />
 </div>
