@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass'
 gem "paperclip"
-# gem 's3_direct_upload'
+gem 's3_direct_upload'
 gem 'aws-sdk', '< 2.0'
 
 group :development, :test do

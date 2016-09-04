@@ -21,3 +21,4 @@
 /.env
 /config/awss3.yml
 /config/aws.yml
+/config/application.yml
