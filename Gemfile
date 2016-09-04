@@ -33,8 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass'
 gem "paperclip"
-gem 's3_direct_upload'
-gem 'aws-sdk'
+# gem 's3_direct_upload'
+# gem 'aws-sdk'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
