@@ -38,4 +38,13 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # for AWS
+  config.paperclip_defaults = {
+  storage: :s3,
+  s3_credentials: {
+    :bucket =>'northcali1',
+    :s3_host_name => 's3-us-west-1.amazonaws.com'
+    }
+  }
 end
