@@ -47,6 +47,7 @@ private
     params.require(:post).permit( :title, :content, imageables_attributes:[:post_id, :image], locations_attributes:[:location,:_destroy,:id])
   end
 	def set_s3_direct_post
+		puts S3_BUCKET.inspect
     @s3_direct_post =S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
   end 
 end
